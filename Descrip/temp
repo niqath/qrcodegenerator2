@@ -1,0 +1,22 @@
+1. Importing Required Libraries
+  qrcode: A library used to generate QR codes.
+  PIL (Python Imaging Library): This is used for image processing. In this case, it's used indirectly by qrcode for handling and saving images.
+  qrcode.constants: This module contains constants related to QR code error correction.
+2. Creating a QR Code Instance
+    qrcode.QRCode: This initializes a QR code object with customizable parameters:
+    version=1: Controls the size of the QR code (1 is the smallest version). Larger versions can hold more data.
+    error_correction=qrcode.constants.ERROR_CORRECT_H: Specifies the error correction level. ERROR_CORRECT_H allows the QR code to restore up to 30% of the data if damaged.
+    box_size=10: The size of each square (module) in the QR code. Increasing this makes the QR code larger.
+    border=4: The width of the border (measured in boxes). The minimum value is 4 for QR codes to be valid.
+3. Adding Data to the QR Code
+      add_data(): Adds the data to be encoded into the QR code. In this case, the URL https://www.w3schools.com/ is embedded.
+4. Finalizing the QR Code
+  make(fit=True): Adjusts the size of the QR code automatically based on the input data and the selected version.
+5. Customizing the QR Code's Appearance
+  make_image(): Creates a QR code image with custom colors:
+  fill_color="pink": The color of the QR code modules (foreground).
+  back_color="black": The background color of the QR code.
+6. Saving the Generated QR Code
+    save("w3school.png"): Saves the generated QR code as a PNG file named w3school.png.
+
+    "You can open the generated image (w3school.png) using any QR code scanner to visit the URL https://www.w3schools.com/."
